@@ -398,7 +398,7 @@ export default function ProductDetail() {
 
       {/* Photo Review Grid with Lightbox */}
       <div className={styles.staticTextSectionVideo}>
-        <h3 className={`${styles.responsiveSmallText} ${styles.videoHeading}`}>ফটো রিভিউ</h3>
+        <h3 className={`${styles.responsiveSmallText} ${styles.videoHeading}`}>কাস্টমার রিভিউ</h3>
       </div>
       <div className={styles.guardianReviewSection}>
         {reviewPhotos.length > 0 ? (
@@ -623,13 +623,13 @@ export default function ProductDetail() {
         <div className={styles.footerInner}>
           <div className={styles.socialIcons}>
             <a href="https://www.facebook.com/share/1BRiT1FXcY/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className={styles.socialIconLink}>
-                <img src="/facebook.svg" alt="Facebook" className={styles.iconImg} />
+                <img src="/icons8-facebook.svg" alt="Facebook" className={styles.iconImg} />
             </a>
             <a href="https://www.tiktok.com/@babutoys.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className={styles.socialIconLink}>
-                <img src="/tiktok.svg" alt="TikTok" className={styles.iconImg} />
+                <img src="/icons8-tiktok.svg" alt="TikTok" className={styles.iconImg} />
             </a>
             <a href="https://m.youtube.com/@BabuToysYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className={styles.socialIconLink}>
-                <img src="/youtube.svg" alt="YouTube" className={styles.iconImg} />
+                <img src="/icons8-youtube.svg" alt="YouTube" className={styles.iconImg} />
             </a>
           </div>
           <div className={styles.copyText}>© {new Date().getFullYear()} Babu Toys - All rights reserved</div>
