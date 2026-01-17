@@ -142,7 +142,7 @@ export default function ProductDetail() {
     },
   ];
 
-  const reviewPhotos = ['/review.jpg','/review2.jpg','/review3.jpg','/review4.jpg','/review5.jpg','/review6.jpg','/review7.jpg','/review11.jpg','/review13.jpg','/review12.jpg'];
+  const reviewPhotos = ['/review3.jpg','/review2.jpg','/review11.jpg','/review4.jpg','/review5.jpg','/review6.jpg','/review7.jpg','/review.jpg','/review13.jpg','/review12.jpg'];
 
   const productPrice = 990;
   const originalPrice = 1650;
@@ -401,6 +401,9 @@ export default function ProductDetail() {
         <h3 className={`${styles.responsiveSmallText} ${styles.videoHeading}`}>কাস্টমার রিভিউ</h3>
       </div>
       <div className={styles.guardianReviewSection}>
+                <p>
+          আমাদের পণ্য ও সেবা ব্যবহার করে গ্রাহকরা যে বাস্তব অভিজ্ঞতা অর্জন করেছেন, তাদের সৎ ও নির্ভরযোগ্য মতামত এখানে তুলে ধরা হয়েছে
+        </p>
         {reviewPhotos.length > 0 ? (
           <>
             <div className={`${styles.photoGrid} ${!showAllPhotos ? styles.collapsed : ''}`}>

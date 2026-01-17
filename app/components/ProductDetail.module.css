@@ -141,7 +141,7 @@
 }
 
 .deliveryAreaNote {
-  color: #666;
+  color: #4a4848;
   font-size: 0.95rem;
   margin-bottom: 10px;
   display: block;
@@ -757,7 +757,7 @@
 .productDescriptionBlock {
   max-width: 980px;
   margin: 20px auto;
-  background: #fff;
+  background: #f0e7e7;
   padding: 18px 20px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.04);
@@ -1803,8 +1803,8 @@
 .submitOrderBtn {
   width: 100%;
   padding: 16px;
-  background: #03c21c;
-  color: #ffffff;
+  background: #25D366;
+  color: #000000;
   border: none;
   border-radius: 50px;
   font-size: 18px;
@@ -1822,7 +1822,7 @@
 .directOrderBtn {
   width: 100%;
   padding: 16px;
-  background: #023e72;
+  background: #011c35;
   color: #ffffff;
   border: none;
   border-radius: 50px;
@@ -1852,7 +1852,7 @@
   justify-content: center;
   width: 100%;
   padding: 16px;
-  background: #ffffff;
+  background: #ebeaea;
   color: #000000;
   border-radius: 50px;
   font-size: 18px;
@@ -1880,7 +1880,7 @@
 
 .orderNote {
   text-align: center;
-  color: #fff;
+  color: #0b0000;
   font-size: 14px;
   margin: 15px 0 0 0;
 }
