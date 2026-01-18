@@ -1,6 +1,6 @@
 # Hostinger VPS deployment checklist (Next.js App Router)
 
-This is a minimal focused guide to deploy this project on a Hostinger VPS (Ubuntu + Node.js).
+This is a minimal focused guide to deploy this project on a Hostinger VPS (Ubuntu + Node.js). 
 
 Prerequisites
 - Ubuntu 20.04+ on VPS
