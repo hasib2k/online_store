@@ -25,7 +25,7 @@ export default function OrdersAdminPage() {
       const stored = (typeof window !== 'undefined') ? localStorage.getItem('admin_password') : null;
       const pwd = stored || password;
       if (pwd) headers['x-admin-password'] = pwd;
-      const res = await fetch('/api/admin/orders', { headers });
+      const res = await fetch('/api/admin/orders', { headers, credentials: 'include' });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         setError(body.message || 'Failed to load orders');
@@ -240,8 +240,8 @@ export default function OrdersAdminPage() {
                     <button className={`${adminStyles.actionBtn} ${adminStyles.complete}`} onClick={async () => {
                       try {
                         const headers: Record<string,string> = { 'Content-Type': 'application/json' };
-                        const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
-                        await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'complete' }) });
+                          const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
+                          await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'complete' }), credentials: 'include' });
                         fetchOrders();
                       } catch (e) { setError('Action failed'); }
                     }}>
@@ -254,8 +254,8 @@ export default function OrdersAdminPage() {
                     <button className={`${adminStyles.actionBtn} ${adminStyles.pending}`} onClick={async () => {
                       try {
                         const headers: Record<string,string> = { 'Content-Type': 'application/json' };
-                        const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
-                        await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'pending' }) });
+                          const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
+                          await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'pending' }), credentials: 'include' });
                         fetchOrders();
                       } catch (e) { setError('Action failed'); }
                     }}>
@@ -269,8 +269,8 @@ export default function OrdersAdminPage() {
                     if (!confirm('Delete this order?')) return;
                     try {
                       const headers: Record<string,string> = { 'Content-Type': 'application/json' };
-                      const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
-                      await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'delete' }) });
+                        const stored = localStorage.getItem('admin_password'); if (stored) headers['x-admin-password']=stored;
+                        await fetch('/api/admin/orders', { method: 'POST', headers, body: JSON.stringify({ id: o.id, action: 'delete' }), credentials: 'include' });
                       fetchOrders();
                     } catch (e) { setError('Action failed'); }
                   }}>

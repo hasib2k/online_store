@@ -19,13 +19,15 @@ export default function AdminLoginPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
+        // allow receiving HttpOnly cookie set by the server
+        credentials: 'include',
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
         setError(body.message || 'Login failed');
       } else {
-        // store password locally to use as header for admin API
-        localStorage.setItem('admin_password', password);
+        // store password locally to preserve existing behavior (legacy fallback)
+        try { localStorage.setItem('admin_password', password); } catch (e) {}
         router.push('/admin/orders');
       }
     } catch (e) {

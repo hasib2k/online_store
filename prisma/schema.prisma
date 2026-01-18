@@ -1,5 +1,7 @@
 datasource db {
-  provider = "sqlite"
+  # Switched to PostgreSQL for production deployments.
+  # Update your DATABASE_URL in the server `.env` before running migrations.
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

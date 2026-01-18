@@ -1,0 +1,20 @@
+[Unit]
+Description=Online Store (Next.js)
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/online_store
+Environment=NODE_ENV=production
+Environment=PORT=3000
+# If you use a .env file, use EnvironmentFile=/var/www/online_store/.env
+ExecStart=/usr/bin/npm run start:prod
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=online_store
+
+[Install]
+WantedBy=multi-user.target

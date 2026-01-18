@@ -4,10 +4,16 @@ import path from 'path';
 
 export async function GET(req: Request) {
   try {
+    // Accept either header-based admin password (legacy) or session cookie
     const adminPassword = process.env.ADMIN_PASSWORD;
+    const cookieHeader = req.headers.get('cookie') || null;
+    const { getCookieFromHeader, verifyAdminToken } = await import('../../../../lib/adminAuth');
+    const sessionToken = getCookieFromHeader(cookieHeader);
+    const headerProvided = req.headers.get('x-admin-password') || '';
+    const headerOk = adminPassword ? headerProvided === adminPassword : false;
+    const cookieOk = verifyAdminToken(sessionToken);
     if (adminPassword) {
-      const provided = req.headers.get('x-admin-password') || '';
-      if (provided !== adminPassword) {
+      if (!headerOk && !cookieOk) {
         return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
       }
     }
@@ -160,10 +166,16 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const adminPassword = process.env.ADMIN_PASSWORD;
-    if (adminPassword) {
-      const provided = req.headers.get('x-admin-password') || '';
-      if (provided !== adminPassword) {
+    // Accept header or session cookie for admin actions (delete/complete/pending)
+    const adminPassword2 = process.env.ADMIN_PASSWORD;
+    const cookieHeader2 = req.headers.get('cookie') || null;
+    const { getCookieFromHeader: getCookie2, verifyAdminToken: verify2 } = await import('../../../../lib/adminAuth');
+    const sessionToken2 = getCookie2(cookieHeader2);
+    const provided2 = req.headers.get('x-admin-password') || '';
+    const headerOk2 = adminPassword2 ? provided2 === adminPassword2 : false;
+    const cookieOk2 = verify2(sessionToken2);
+    if (adminPassword2) {
+      if (!headerOk2 && !cookieOk2) {
         return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
       }
     }
